@@ -1,4 +1,7 @@
 package fecha;
+/*
+ * @author Rafael Caballero
+ */
 
 // TODO: ¿Como implementar los assert?
 public class Fecha {

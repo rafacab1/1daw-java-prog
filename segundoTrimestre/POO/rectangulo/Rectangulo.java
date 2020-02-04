@@ -3,7 +3,7 @@ package rectangulo;
 /**
  * Rectangulo.java
  * 
- * @author rafacab1
+ * @author Rafael Caballero
  *
  */
 

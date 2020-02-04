@@ -1,4 +1,7 @@
 package tiempo;
+/*
+ * @author Rafael Caballero
+ */
 
 public class Tiempo {
   // Atributos //////

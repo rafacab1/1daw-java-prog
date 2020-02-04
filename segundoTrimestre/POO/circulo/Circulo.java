@@ -2,6 +2,10 @@ package circulo;
 import java.lang.Math;
 import javax.swing.JOptionPane;
 
+/*
+ * @author Rafael Caballero
+ */
+
 public class Circulo {
   // Atributos //////////
   double radio;
