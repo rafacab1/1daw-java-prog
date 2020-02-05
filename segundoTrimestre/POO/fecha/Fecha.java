@@ -4,7 +4,7 @@ package fecha;
  */
 
 // TODO: ¿Como implementar los assert?
-public class Fecha {
+public class Fecha implements Comparable<Fecha> {
   // Atributos //////
   int dia;
   int mes;
@@ -42,6 +42,9 @@ public class Fecha {
   }
   
   public boolean esBisiesto(int anyo) {
+    /*
+     * Función que comprueba si el año en cuestión es bisiesto.
+     */
     if (anyo%400==0 || (anyo%4==0 && anyo%100!=0)) {
       return true;
     } else {
@@ -50,6 +53,9 @@ public class Fecha {
   }
   
   public Fecha suma1Dia() {
+    /*
+     * Función que suma un día a la fecha.
+     */
     int dia = this.dia +1;
     int mes = this.mes;
     int anyo = this.anyo;
@@ -67,6 +73,9 @@ public class Fecha {
   }
   
   public Fecha resta1Dia() {
+    /*
+     * Función que resta un día a la fecha.
+     */
     int dia = this.dia - 1;
     int mes = this.mes;
     int anyo = this.anyo;
@@ -83,7 +92,10 @@ public class Fecha {
   }
   
   public Fecha sumaNDias(int value) {
-    Fecha tmp = this;
+    /*
+     * Función que suma n días (los que se le pasa por argumento) a la fecha.
+     */
+    Fecha tmp = this.clona(this.dia, this.mes, this.anyo);
     if (value>0) {
       for (int i=1;i<=value;i++) {
         tmp = tmp.suma1Dia();
@@ -97,7 +109,10 @@ public class Fecha {
   }
   
   public Fecha restaNDias(int value) {
-    Fecha tmp = this;
+    /*
+     * Función que resta n días (los que se le pasa por argumento) a la fecha.
+     */
+    Fecha tmp = this.clona(this.dia, this.mes, this.anyo);
     if (value>0) {
       for (int i=1;i<=value;i++) {
         tmp = tmp.resta1Dia();
@@ -130,11 +145,17 @@ public class Fecha {
   }
   
   public String nombreMes() {
+    /*
+     * Función que devuelve el nombre del mes.
+     */
     String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "noviembre", "diciembre"};
     return meses[this.mes-1];
   }
   
   public int diasMes(int mes, int anyo) {
+    /*
+     * Función que devuelve la cantidad de días de un mes.
+     */
     int[] diasMes = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (this.esBisiesto(anyo)) {
       diasMes[1] = 29;
@@ -145,6 +166,23 @@ public class Fecha {
   public String toString() {
     String str = this.dia + " de " + this.nombreMes() + " de " + this.anyo;
     return str;
+  }
+  
+  public Fecha clona(int dia, int mes, int anyo) {
+    /*
+     * Devuelve una copia del objeto (this).
+     * 
+     */
+    Fecha fechaClon = new Fecha(dia, mes, anyo);
+    return fechaClon;
+  }
+  
+  public int compareTo(Fecha otraFecha) {
+    return (this).compareTo(otraFecha);
+  }
+  
+  public boolean equals(Fecha otraFecha) {
+    return (this).equals(otraFecha);
   }
 }
 
