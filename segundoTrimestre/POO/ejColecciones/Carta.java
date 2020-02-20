@@ -1,6 +1,6 @@
 package ejColecciones;
 
-public class Carta {
+public class Carta implements Comparable<Carta> {
   // Atributos
   int numero;
   String palo;
@@ -40,5 +40,13 @@ public class Carta {
     } else {
       return Integer.toString(this.numero) + " de " + this.palo;
     }
+  }
+  
+  public int compareTo(Carta cartas) {
+    return (this.palo).compareTo(cartas.getPalo());
+  }
+  
+  public boolean equals(Carta cartas) {
+    return (this.palo).equals(cartas.getPalo());
   }
 }
